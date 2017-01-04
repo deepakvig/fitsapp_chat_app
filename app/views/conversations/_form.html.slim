@@ -1,4 +1,5 @@
-= form_for @conversation, url: :conversations, html: { class: "" } do |f|
+- url = @conversation.new_record? ? :conversations : conversation_path(@conversation)
+= form_for @conversation, url: url, html: { class: "" } do |f|
   .form-group
     = f.label :to, "Recipient"
     = f.select(:to, User.all.collect {|p| [ p.email, p.id ] }, {}, {class: "form-control" })

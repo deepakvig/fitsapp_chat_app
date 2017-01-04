@@ -6,8 +6,6 @@
       = " - " + truncate( conversation.body, length: 50)
     span.badge
       = conversation.created_at.strftime("%I:%M%p")
-    span.pull-right
-      span.glyphicon.glyphicon-paperclip
 - else
   a.list-group-item href="#{conversation_path(conversation)}" 
     span.name style=("min-width: 180px;display: inline-block;")  
@@ -16,7 +14,5 @@
       = " - " + truncate( conversation.body, length: 50)
     span.badge
       = conversation.created_at.strftime("%I:%M%p")
-    span.pull-right
-      span.glyphicon.glyphicon-paperclip
 
   

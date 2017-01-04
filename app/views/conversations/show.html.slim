@@ -4,6 +4,11 @@
   .row
     .col-sm-3.col-md-2
       = link_to "New Chat", new_conversation_path, class: "btn btn-danger btn-sm btn-block"
+    - if @conversation && can?( :update, Message)
+      .col-md-6.text-right
+        = link_to "Edit", edit_conversation_path(@conversation), class: "btn btn-warning"
+        '&nbsp;
+        = link_to "Delete", conversation_path(@conversation), class: "btn btn-danger", data: {:confirm => 'Are you sure?'}, method: :delete  
     hr
     .clearfix
     

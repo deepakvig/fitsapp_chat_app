@@ -5,4 +5,6 @@ class MessageCopy < ApplicationRecord
   
   validates_presence_of :recipient_id
   
+  default_scope { order(created_at: :desc) }
+  
 end

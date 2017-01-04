@@ -37,6 +37,8 @@ gem 'font-awesome-sass', '~> 4.6.2'
 gem 'devise'
 gem 'active_decorator'
 
+gem 'access-granted'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -54,6 +56,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'dotenv-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
