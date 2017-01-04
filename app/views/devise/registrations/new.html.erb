@@ -12,6 +12,11 @@
         <% end %>
         <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation", class: "form-control" %>
+        <div class="checkbox">
+          <label> 
+            <%= f.check_box :role %> &nbsp;&nbsp;Trainer
+          </label>
+        </div>
         <%= f.submit "Sign Up", class: "btn btn-lg btn-primary btn-block" %>
       <% end %>
     </div>
