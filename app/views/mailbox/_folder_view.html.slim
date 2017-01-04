@@ -1,0 +1,20 @@
+.row
+  .col-sm-3.col-md-2
+    = link_to "New Chat", new_conversation_path, class: "btn btn-danger btn-sm btn-block"
+  hr
+  .clearfix
+  
+  .col-sm-3.col-md-2
+    ul.nav.nav-pills.nav-stacked  
+      = render 'mailbox/folders'
+
+  .col-sm-9.col-md-10
+    /! Nav tabs
+    .tab-content
+      .tab-pane.fade.in.active
+        .list-group
+          - if is_conversation
+            = render 'conversations/form'
+          - else
+            = render partial: 'conversations/conversation', collection: messages
+            

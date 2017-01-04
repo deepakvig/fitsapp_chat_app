@@ -1,0 +1,14 @@
+.media
+  .media-body
+    h4.media-heading
+      b From: 
+      = @conversation.author.email
+      br/
+      b To: 
+      = @conversation.recipients.map(&:email).join(', ')
+      br/
+      small
+        b Date: 
+        = @conversation.created_at.strftime("%A, %b %d, %Y at %I:%M%p")
+      br/
+    = @conversation.body

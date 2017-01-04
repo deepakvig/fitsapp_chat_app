@@ -1,0 +1,22 @@
+- if conversation.respond_to?( :message )
+  a.list-group-item class="#{conversation.read? ? '' : 'bold'}" href="#{conversation_path(conversation.message)}" 
+    span.name style=("min-width: 180px;display: inline-block;")  
+      = conversation.author.email
+    span.text-muted style=("font-size: 11px;")
+      = " - " + truncate( conversation.body, length: 50)
+    span.badge
+      = conversation.created_at.strftime("%I:%M%p")
+    span.pull-right
+      span.glyphicon.glyphicon-paperclip
+- else
+  a.list-group-item href="#{conversation_path(conversation)}" 
+    span.name style=("min-width: 180px;display: inline-block;")  
+      = truncate( conversation.recipients.map(&:email).join(", "), length: 100)
+    span.text-muted style=("font-size: 11px;")
+      = " - " + truncate( conversation.body, length: 50)
+    span.badge
+      = conversation.created_at.strftime("%I:%M%p")
+    span.pull-right
+      span.glyphicon.glyphicon-paperclip
+
+  

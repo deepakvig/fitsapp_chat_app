@@ -1,0 +1,8 @@
+li class="#{active_page(:inbox)}"
+  = link_to mailbox_inbox_path do 
+    span.badge.pull-right = @unread_count
+    | Chats
+li class="#{active_page(:sent)}"
+  = link_to mailbox_sent_path do 
+    | Sent
+  
