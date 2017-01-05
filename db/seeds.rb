@@ -9,3 +9,6 @@
 admin = User.create(email: 'admin@example.com', password: 'password')
 admin.is_admin = true
 admin.save
+
+trainer = User.create(email: 'trainer@example.com', password: 'password', role: 1)
+user = User.create(email: 'user@example.com', password: 'password', role: 0)
