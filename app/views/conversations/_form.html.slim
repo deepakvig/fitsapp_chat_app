@@ -1,8 +1,11 @@
 - url = @conversation.new_record? ? :conversations : conversation_path(@conversation)
+- selected = @conversation.new_record? ? '' : @conversation.recipients.first.id
+- users = User.all
+- users = users.reject{|u| u.id == current_user.id} unless current_user.is_admin?
 = form_for @conversation, url: url, html: { class: "" } do |f|
   .form-group
     = f.label :to, "Recipient"
-    = f.select(:to, User.all.collect {|p| [ p.email, p.id ] }, {}, {class: "form-control" })
+    = f.select(:to, options_for_select(users.collect {|p| [ p.email, p.id ] }, selected), {}, {class: "form-control" })
   .form-group
     = f.label :message
     = f.text_area :body, class: 'form-control',placeholder: "Type your message here", rows: 4
